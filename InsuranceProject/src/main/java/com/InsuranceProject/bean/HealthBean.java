@@ -1,6 +1,6 @@
 package com.InsuranceProject.bean;
 
-public class InsuranceBean {
+public class HealthBean {
 	private String Name;
 	private String Age;
 	private String Mobile_No;
