@@ -49,6 +49,7 @@ public class InsuranceDao {
 		}
 		int result1;
 		return result1;
+	
 	}
 			
 	}
