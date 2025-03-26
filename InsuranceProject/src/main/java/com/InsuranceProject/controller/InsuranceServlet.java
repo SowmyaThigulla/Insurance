@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import com.InsuranceProject.bean.HealthBean;
 import com.InsuranceProject.bean.VehicleBean;
 import com.InsuranceProject.dao.InsuranceDao;
+import com.InsuranceProject.dao.VehicleDao;
 
 /**
  * Servlet implementation class InsuranceServlet
@@ -90,7 +91,7 @@ public class InsuranceServlet extends HttpServlet {
 		a.setVehicle_Model(Vehicle_Model);
 		
 	    VehicleDao vd = new VehicleDao();
-	    int result = VehicleDao insertData1(a);
+	    int result = VehicleDao InsertData1(a);
 	    
 	    HttpSession session = request.getSession(); // keeping the session open
 		(session).setAttribute("VehicleObject", a);
@@ -104,6 +105,11 @@ public class InsuranceServlet extends HttpServlet {
 			Fail.forward(request, response);
 		}
 		doGet(request, response);
+	}
+
+	private void InsertData1(VehicleBean a) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
