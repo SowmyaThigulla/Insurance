@@ -1,14 +1,17 @@
-package com.Insurance.dao;
+package com.InsuranceProject.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+
+import com.InsuranceProject.bean.HealthBean;
 public class InsuranceDao {
 	static Connection con;
 	static PreparedStatement ps;
 	public InsuranceDao() {
-		con=MySqlConnection1.getInstance();
+		con=MySqlConnection.getInstance();
 		
 	}
-	public static int Insertdata(HealtheBean s) {
+	public static int Insertdata(HealthBean s) {
+		int result =0;
 		String query="INSERT INTO Health_Insurance (Name,Age,Mobile_No,Address,Mail_Id,Health_condition) VALUES (?,?,?,?,?,?)";
 
 		try {
@@ -20,22 +23,25 @@ public class InsuranceDao {
 			ps.setString(4, s.getAddress());
 			ps.setString(5, s.getMail_Id());
 			ps.setString(6, s.getHealth_condition());
-			
-			
-			int result=ps.executeUpdate();
+		
+			result=ps.executeUpdate();
+		  
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		int result;
+		
 		return result;
 	}
-	public static int Updatedata(HealtheBean s) {
-		String query="UPDATE Health_Insurance SET status = 'Claimed' WHERE policy_id = ?";
+	public static int Updatedata(HealthBean s) {
+		int result1 =0;
+		String query1="UPDATE Health_Insurance SET status = 'Claimed' WHERE policy_id = ?";
 		try {
-			ps=con.prepareStatement(query);
-			ps.setString(1,s.getpolicyId());
-			int result1=ps.executeUpdate();
+			ps=con.prepareStatement(query1);
+			ps.setString(1,s.getName());
+			
+			 result1=ps.executeUpdate();
+			 
 			if (result1 > 0) {
                 System.out.println("Insurance policy claimed successfully.");
             } else {
@@ -47,7 +53,7 @@ public class InsuranceDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		int result1;
+		
 		return result1;
 	
 	}
