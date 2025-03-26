@@ -1,18 +1,18 @@
-package com.Insurance.dao;
+package com.InsuranceProject.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class MySqlConnection1 {
+public class MySqlConnection {
 
-	private static MySqlConnection1 mysql = new MySqlConnection1();
+	private static MySqlConnection mysql = new MySqlConnection();
 	Connection con;
 	
-	private MySqlConnection1() {
+	private MySqlConnection() {
 		
 		try {
 			 Class.forName("com.mysql.cj.jdbc.Driver");
-			 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Health_Insurance","root","root");
+			 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/insurance","root","root");
 			
 		} catch (Exception e) {
 		
@@ -26,7 +26,7 @@ public class MySqlConnection1 {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(MySqlConnection1.getInstance());
+		System.out.println(MySqlConnection.getInstance());
 	}
 
 }
