@@ -18,7 +18,7 @@ public class VehicleDao {
 	public static int Insertdata(VehicleBean ss) {
 		int result = 0;
 		
-		String query = "insert into student values (?,?,?,?)";
+		String query = "insert into vehicle values (?,?,?,?)";
 		
 		
 		try {
