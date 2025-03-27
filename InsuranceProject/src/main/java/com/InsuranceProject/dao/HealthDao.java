@@ -31,6 +31,7 @@ public class HealthDao {
 			ps.setString(4, ss.getHealth_condition());
 			
 			
+			
 			result = ps.executeUpdate();	
 			
 		} catch (Exception e) {
