@@ -18,7 +18,7 @@ public class HealthDao {
 	public static int Insertdata(HealthBean ss) {
 		int result = 0;
 		
-		String query = "insert into student values (?,?,?,?,?,?)";
+		String query = "insert into health values (?,?,?,?,?,?)";
 		
 		
 		try {
@@ -27,8 +27,8 @@ public class HealthDao {
 			ps.setString(2, ss.getAge());
 			ps.setString(3, ss.getMobile_no());
 			ps.setString(4, ss.getAddress());
-			ps.setString(4, ss.getMail_Id());
-			ps.setString(4, ss.getHealth_condition());
+			ps.setString(5, ss.getMail_Id());
+			ps.setString(6, ss.getHealth_condition());
 			
 			
 			
