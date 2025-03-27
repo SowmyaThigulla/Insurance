@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.InsuranceProject.bean.HealthBean;
 import com.InsuranceProject.bean.VehicleBean;
-import com.InsuranceProject.dao.InsuranceDao;
+import com.InsuranceProject.dao.HealthDao;
 import com.InsuranceProject.dao.VehicleDao;
 
 /**
@@ -54,8 +54,8 @@ public class InsuranceServlet extends HttpServlet {
 
 		@SuppressWarnings("unused")
 
-		InsuranceDao rd = new InsuranceDao();
-		int result = InsuranceDao.Insertdata(s); // we will have value for result
+		HealthDao rd = new HealthDao();
+		int result = HealthDao.Insertdata(s); // we will have value for result
 
 		HttpSession session = request.getSession(); // keeping the session open
 		(session).setAttribute("HealthObject", s);
@@ -91,7 +91,7 @@ public class InsuranceServlet extends HttpServlet {
 		a.setVehicle_Model(Vehicle_Model);
 		
 	    VehicleDao vd = new VehicleDao();
-	    int result = VehicleDao InsertData1(a);
+	    int result =  VehicleDao.Insertdata(a);
 	    
 	    HttpSession session = request.getSession(); // keeping the session open
 		(session).setAttribute("VehicleObject", a);
