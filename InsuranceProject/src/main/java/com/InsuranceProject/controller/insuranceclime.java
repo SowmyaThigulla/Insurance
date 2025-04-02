@@ -1,18 +1,17 @@
 package com.InsuranceProject.controller;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpSession;
 
 import com.InsuranceProject.bean.HealthBean;
 import com.InsuranceProject.bean.VehicleBean;
 import com.InsuranceProject.dao.HealthDao;
 import com.InsuranceProject.dao.VehicleDao;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class InsuranceClaim
@@ -26,21 +25,22 @@ public class insuranceclime extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("Name");
-        String age = request.getParameter("Age");
-        String mobileNo = request.getParameter("Mobile_no");
-        String address = request.getParameter("Address");
-        String mailId = request.getParameter("Mail_id");
-        String healthCondition = request.getParameter("Health_condition");
+    	String uniqueID = request.getParameter("uniqueID");
+//        String name = request.getParameter("Name");
+//        String age = request.getParameter("Age");
+//        String mobileNo = request.getParameter("Mobile_no");
+//        String address = request.getParameter("Address");
+//        String mailId = request.getParameter("Mail_id");
+//        String healthCondition = request.getParameter("Health_condition");
 
         // Creating the HealthBean object and setting values
         HealthBean healthBean = new HealthBean();
-        healthBean.setName(name);
-        healthBean.setAge(age);
-        healthBean.setMobile_no(mobileNo);
-        healthBean.setAddress(address);
-        healthBean.setMail_Id(mailId);
-        healthBean.setHealth_condition(healthCondition);
+        healthBean.setuniqueID(uniqueID);
+//        healthBean.setAge(age);
+//        healthBean.setMobile_no(mobileNo);
+//        healthBean.setAddress(address);
+//        healthBean.setMail_Id(mailId);
+//        healthBean.setHealth_condition(healthCondition);
 
         // Insert data using HealthDao instance
         HealthDao healthDao = new HealthDao();
@@ -64,17 +64,17 @@ public class insuranceclime extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String Vehicle_Type = request.getParameter("Vehicle_Type");
-		String Vehicle_Name = request.getParameter("Vehicle_Name");
-		String Vehicle_No = request.getParameter("Vehicle_No");
-		String Vehicle_Model = request.getParameter("Vehicle_Model");
+    	String uniqueID1 = request.getParameter("uniqueID1");
+//		String Vehicle_Name = request.getParameter("Vehicle_Name");
+//		String Vehicle_No = request.getParameter("Vehicle_No");
+//		String Vehicle_Model = request.getParameter("Vehicle_Model");
 		
 		VehicleBean a = new VehicleBean();
 		
-		a.setVehicle_Type(Vehicle_Type);
-		a.setVehicle_Name(Vehicle_Name);
-		a.setVehicle_Number(Vehicle_No);
-		a.setVehicle_Model(Vehicle_Model);
+		a.setuniqueID1(uniqueID1);
+//		a.setVehicle_Name(Vehicle_Name);
+//		a.setVehicle_Number(Vehicle_No);
+//		a.setVehicle_Model(Vehicle_Model);
 		
 	    VehicleDao vd = new VehicleDao();
 	    int result =  VehicleDao.Insertdata(a);
