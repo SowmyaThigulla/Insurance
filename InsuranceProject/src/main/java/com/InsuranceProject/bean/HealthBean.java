@@ -1,6 +1,9 @@
 package com.InsuranceProject.bean;
 
+import java.util.UUID;
+
 public class HealthBean {
+	private String uniqueID = UUID.randomUUID().toString();
 	private String Name;
 	private String Age;
 	private String Mobile_No;
@@ -43,6 +46,19 @@ public class HealthBean {
 	public void setHealth_condition(String health_condition) {
 		Health_condition = health_condition;
 	}
+	public String getuniqueID() {
+		return uniqueID;
+	}
+	public void setuniqueID(String uniqueID) {
+		this.uniqueID = uniqueID;
+	}
+	public String getMobile_No() {
+		return Mobile_No;
+	}
+	public void setMobile_No(String mobile_No) {
+		Mobile_No = mobile_No;
+	}
+	
 	
 
 }
