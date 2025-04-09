@@ -3,7 +3,8 @@ package com.InsuranceProject.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
+import java.util.List;
 import com.InsuranceProject.bean.VehicleBean;
 import com.InsuranceProject.dao.MySqlConnection;
 
@@ -36,6 +37,24 @@ public class VehicleDao {
 			e.printStackTrace();
 		}	
 		return result;
+	}
+	public List<VehicleBean> fetchAllClaimData() {
+		List<VehicleBean> claim = new ArrayList<VehicleBean>();
+		String query = "select * from Vehicle";
+		try {
+			ps = con.prepareStatement(query);
+			resultset = ps.executeQuery();
+			VehicleBean employeeBean = null;
+			while(resultset.next()) {
+				VehicleBean = new VehicleBean();
+				VehicleBean.setUniqueId(resultset.getString(1));
+				claim.add(VehicleBean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return claim ;
+		
 	}
 	
 	public static int DeleteData(VehicleBean s) {
