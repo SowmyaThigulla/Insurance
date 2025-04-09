@@ -3,9 +3,10 @@ package com.InsuranceProject.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.InsuranceProject.bean.HealthBean;
-import com.InsuranceProject.dao.MySqlConnection;
 
 public class HealthDao {
 	static Connection con;
@@ -39,6 +40,24 @@ public class HealthDao {
 			e.printStackTrace();
 		}	
 		return result;
+	}
+	public List<HealthBean> fetchAllClaimData() {
+		List<HealthBean> claim = new ArrayList<HealthBean>();
+		String query = "select * from Health";
+		try {
+			ps = con.prepareStatement(query);
+			resultset = ps.executeQuery();
+			HealthBean employeeBean = null;
+			while(resultset.next()) {
+				HealthBean = new HealthBean();
+				HealthBean.setUniqueId(resultset.getString(1));
+				claim.add(HealthBean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return claim ;
+		
 	}
 	
 	public static int DeleteData(HealthBean s) {

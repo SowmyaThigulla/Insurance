@@ -1,9 +1,18 @@
 package com.InsuranceProject.bean;
 
+import java.util.UUID;
+
 public class VehicleBean {
+	private String uniqueID1 = UUID.randomUUID().toString();
 	private String Vehicle_Type;
 	private String Vehicle_Name;
 	private String Vehicle_Number;
+	public String getuniqueID1() {
+		return uniqueID1;
+	}
+	public void setuniqueID1(String uniqueID1) {
+		this.uniqueID1 = uniqueID1;
+	}
 	private String Vehicle_Model;
 	public String getVehicle_Type() {
 		return Vehicle_Type;
