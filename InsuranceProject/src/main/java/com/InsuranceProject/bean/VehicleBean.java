@@ -3,17 +3,17 @@ package com.InsuranceProject.bean;
 import java.util.UUID;
 
 public class VehicleBean {
-	private String uniqueID1 = UUID.randomUUID().toString();
+	private String uniqueID1; 
 	private String Vehicle_Type;
 	private String Vehicle_Name;
 	private String Vehicle_Number;
-	public String getuniqueID1() {
+	private String Vehicle_Model;
+	public String getUniqueID1() {
 		return uniqueID1;
 	}
-	public void setuniqueID1(String uniqueID1) {
+	public void setUniqueID1(String uniqueID1) {
 		this.uniqueID1 = uniqueID1;
 	}
-	private String Vehicle_Model;
 	public String getVehicle_Type() {
 		return Vehicle_Type;
 	}
@@ -39,5 +39,7 @@ public class VehicleBean {
 		Vehicle_Model = vehicle_Model;
 	}
 	
-
 }
+	
+	
+	

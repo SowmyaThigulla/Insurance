@@ -8,6 +8,7 @@ import com.InsuranceProject.bean.VehicleBean;
 import com.InsuranceProject.dao.HealthDao;
 import com.InsuranceProject.dao.VehicleDao;
 
+
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,11 +20,12 @@ import jakarta.servlet.http.HttpSession;
 /**
  * Servlet implementation class InsuranceClaim
  */
-@WebServlet("/insuranceclaim")  // Fixed naming
-public class insuranceclime extends HttpServlet {
+@WebServlet("/Insuranceclaim")  // Fixed naming
+public class Insuranceclaim extends HttpServlet {
     private static final long serialVersionUID = 1L;
+	
     
-    public insuranceclime() {
+    public Insuranceclaim() {
         super();
     }
 
@@ -32,38 +34,33 @@ public class insuranceclime extends HttpServlet {
 
 		List<HealthBean> result =dbo.fetchAllClaimData();
 
-		
-
 		HttpSession session= request.getSession();
 
-		session.setAttribute("EmployeeObject", result);
+		session.setAttribute("Object", result);
+		
+		RequestDispatcher Success = request.getRequestDispatcher("ViewHealth.jsp");
+		Success.forward(request, response);
 
 		
 
-		RequestDispatcher reqdispatcher=request.getRequestDispatcher("Success.html");
-
-		reqdispatcher.forward(request, response);
-
-		
 
 	}
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	VehicleDao dbo=new VehicleDao();
 
-		List<VehicleBean> result =dbo.fetchAllClaimData();
-
-		
+		List<VehicleBean> resultset =dbo.fetchAllClaimData();
 
 		HttpSession session= request.getSession();
 
-		session.setAttribute("EmployeeObject", result);
+		session.setAttribute("Object", resultset);
 
 		
 
-		RequestDispatcher reqdispatcher=request.getRequestDispatcher("Success.html");
+		RequestDispatcher reqdispatcher=request.getRequestDispatcher("ViewVehicle.jsp");
 
 		reqdispatcher.forward(request, response);
+		
     	
     }
 }
