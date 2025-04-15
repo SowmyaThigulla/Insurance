@@ -2,11 +2,13 @@ package com.InsuranceProject.controller;
 
 import java.io.IOException;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import com.InsuranceProject.bean.VehicleBean;
 import com.InsuranceProject.dao.VehicleDao;
@@ -35,10 +37,10 @@ public class VehicleCrudOperations extends HttpServlet {
 		vb.setVehicle_Type(vehicle_type);
 		VehicleDao vd = new VehicleDao();
 		int result = vd.DeleteData(vb);
-		javax.servlet.http.HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 				session.setAttribute("Object",vb);
-				javax.servlet.RequestDispatcher successDispatcher = request.getRequestDispatcher("Success.html");
-				javax.servlet.RequestDispatcher failDispatcher = request.getRequestDispatcher("Fail.html");
+				RequestDispatcher successDispatcher = request.getRequestDispatcher("Success.html");
+				RequestDispatcher failDispatcher = request.getRequestDispatcher("Fail.html");
 				if(result<0) {
 					successDispatcher.forward(request, response);
 				}
@@ -61,11 +63,11 @@ public class VehicleCrudOperations extends HttpServlet {
 		VehicleDao x = new VehicleDao();
 		int result =x.UpdateData(vehicle);
 		
-				javax.servlet.http.HttpSession session = request.getSession();
+				HttpSession session = request.getSession();
 		session.setAttribute("AKhil",vehicle);
 		
-		javax.servlet.RequestDispatcher successDispatcher = request.getRequestDispatcher("Success.html");
-		javax.servlet.RequestDispatcher failDispatcher = request.getRequestDispatcher("Fail.html");
+		RequestDispatcher successDispatcher = request.getRequestDispatcher("Success.html");
+		RequestDispatcher failDispatcher = request.getRequestDispatcher("Fail.html");
 		
 		if (result<0) {
 			successDispatcher.forward(request, response);
