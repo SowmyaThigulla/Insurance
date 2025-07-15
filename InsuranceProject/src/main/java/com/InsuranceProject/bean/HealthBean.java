@@ -2,6 +2,8 @@ package com.InsuranceProject.bean;
 
 import java.util.UUID;
 
+import javax.persistence.Entity;
+@Entity
 public class HealthBean {
     private String uniqueID;
 	public String getUniqueID() {

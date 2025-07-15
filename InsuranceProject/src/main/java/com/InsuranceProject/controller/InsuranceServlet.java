@@ -43,7 +43,7 @@ public class InsuranceServlet extends HttpServlet {
 		String Address = request.getParameter("Address");
 		String Mail_Id = request.getParameter("Mail_id");
 		String Health_condition = request.getParameter("Health_condition");
-		String uniqueID =   UUID.randomUUID().toString().substring(0, 8).toUpperCase();
+		String uniqueID =   "H-"+UUID.randomUUID().toString().substring(0, 8).toUpperCase();
 
 		HealthBean s = new HealthBean(); // As we need to use across the project creating the
 
